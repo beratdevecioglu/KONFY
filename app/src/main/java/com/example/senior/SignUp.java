@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
             }
             private Boolean validateUsername(){
                 String val = username.getEditText().getText().toString();
-                String noWhiteSpace = "\"\\\\A\\\\w{4,20}\\\\z\"";
+                String noWhiteSpace = "\\A\\w{4,20}\\z";
 
                 if(val.isEmpty()){
                     username.setError("Bu alanın doldurulması gerekiyor.");
@@ -85,7 +85,7 @@ public class SignUp extends AppCompatActivity {
                 }
                 else{
                     username.setError(null);
-                    fullname.setErrorEnabled(false);
+                    username.setErrorEnabled(false);
                     return true;
                 }
             }
@@ -124,7 +124,7 @@ public class SignUp extends AppCompatActivity {
                         //"(?=.*[a-z])" +         //at least 1 lower case letter
                         //"(?=.*[A-Z])" +         //at least 1 upper case letter
                         "(?=.*[a-zA-Z])" +      //any letter
-                        "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                        "(?=.*[@#$%^&+=*])" +    //at least 1 special character
                         "(?=\\S+$)" +           //no white spaces
                         ".{4,}" +               //at least 4 characters
                         "$";
