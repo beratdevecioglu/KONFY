@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1383389664",
+    "firebase_url": "https://konfy-340d6.firebaseio.com",
+    "project_id": "konfy-340d6",
+    "storage_bucket": "konfy-340d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1383389664:android:916474b7dcf97407977385",
+        "android_client_info": {
+          "package_name": "com.example.senior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1383389664-bp906tgoo7uj1eqsp2oabcn3iqf1q56n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1LFPs6D_yY2RM-0P1Zg1Rf8ueDNlk64k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1383389664-bp906tgoo7uj1eqsp2oabcn3iqf1q56n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

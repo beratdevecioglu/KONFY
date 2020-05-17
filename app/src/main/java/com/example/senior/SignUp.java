@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
@@ -20,7 +22,12 @@ public class SignUp extends AppCompatActivity {
     Button callDashboard, enter_btn, aluser_btn ;
     ImageView image;
     TextView oppeningtext;
-    TextInputLayout username, password;;
+    TextInputLayout fullname, username, email, password;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +40,36 @@ public class SignUp extends AppCompatActivity {
         callDashboard = findViewById(R.id.aluser_btn);
         image = findViewById(R.id.logo_image);
         oppeningtext = findViewById(R.id.openning_text);
+        fullname = findViewById(R.id.fullname);
         username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         enter_btn = findViewById(R.id.enter_btn);
         aluser_btn = findViewById(R.id.aluser_btn);
+
+        //To save data in Firebase when the button clicks
+
+        enter_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("accounts");
+
+                //getting values
+                String FDfullname = fullname.getEditText().getText().toString();
+                String FDusername = username.getEditText().getText().toString();
+                String FDemail = email.getEditText().getText().toString();
+                String FDpassword = password.getEditText().getText().toString();
+
+
+                UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDemail, FDpassword);
+
+                reference.child(FDemail).setValue(helperClass);
+
+            }
+
+        });
+
 
         callDashboard.setOnClickListener (new View.OnClickListener() {
             @Override
