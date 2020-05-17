@@ -19,7 +19,7 @@ public class Dashboard extends AppCompatActivity {
     Button callSignUp, enter_btn, aluser_btn ;
     ImageView image;
     TextView oppeningtext;
-    TextInputLayout fullname, username, email, password;
+    TextInputLayout fullname, username, phonenumber, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class Dashboard extends AppCompatActivity {
         oppeningtext = findViewById(R.id.openning_text);
         fullname = findViewById(R.id.fullname);
         username = findViewById(R.id.username);
+        phonenumber = findViewById(R.id.phonenumber);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         enter_btn = findViewById(R.id.enter_btn);

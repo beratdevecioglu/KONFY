@@ -22,7 +22,7 @@ public class SignUp extends AppCompatActivity {
     Button callDashboard, enter_btn, aluser_btn ;
     ImageView image;
     TextView oppeningtext;
-    TextInputLayout fullname, username, email, password;
+    TextInputLayout fullname, username, phonenumber, email, password;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -42,6 +42,7 @@ public class SignUp extends AppCompatActivity {
         oppeningtext = findViewById(R.id.openning_text);
         fullname = findViewById(R.id.fullname);
         username = findViewById(R.id.username);
+        phonenumber = findViewById(R.id.phonenumber);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         enter_btn = findViewById(R.id.enter_btn);
@@ -58,13 +59,14 @@ public class SignUp extends AppCompatActivity {
                 //getting values
                 String FDfullname = fullname.getEditText().getText().toString();
                 String FDusername = username.getEditText().getText().toString();
+                String FDphonenumber = phonenumber.getEditText().getText().toString();
                 String FDemail = email.getEditText().getText().toString();
                 String FDpassword = password.getEditText().getText().toString();
 
 
-                UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDemail, FDpassword);
+                UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDphonenumber, FDemail, FDpassword);
 
-                reference.child(FDemail).setValue(helperClass);
+                reference.child(FDphonenumber).setValue(helperClass);
 
             }
 

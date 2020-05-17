@@ -54,6 +54,8 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
@@ -62,6 +64,23 @@
             android:id="@+id/username"
             android:textColorHint="#ffffff"
             android:hint="Kullanıcı Adı"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:transitionName="username_trname"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phonenumber"
+            android:textColorHint="#ffffff"
+            android:hint="Telefon Numarası"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -106,6 +125,8 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
         <Button
             android:id="@+id/enter_btn"
             android:layout_width="match_parent"
@@ -127,7 +148,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:background="#285d7d"
             android:text="Zaten üye misin?"
             android:textColor="#ffffff"
