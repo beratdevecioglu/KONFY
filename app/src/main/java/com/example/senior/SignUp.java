@@ -48,13 +48,107 @@ public class SignUp extends AppCompatActivity {
         enter_btn = findViewById(R.id.enter_btn);
         aluser_btn = findViewById(R.id.aluser_btn);
 
+
+
+
+
         //To save data in Firebase when the button clicks
 
         enter_btn.setOnClickListener(new View.OnClickListener() {
+
+            private Boolean validateName(){
+                String val = fullname.getEditText().getText().toString();
+
+                if(val.isEmpty()){
+                    fullname.setError("Bu alanın doldurulması gerekiyor.");
+                    return false;
+                }
+                else{
+                    fullname.setError(null);
+                    fullname.setErrorEnabled(false);
+                    return true;
+                }
+            }
+            private Boolean validateUsername(){
+                String val = username.getEditText().getText().toString();
+                String noWhiteSpace = "\"\\\\A\\\\w{4,20}\\\\z\"";
+
+                if(val.isEmpty()){
+                    username.setError("Bu alanın doldurulması gerekiyor.");
+                    return false;
+                } else if(val.length()>=15){
+                    username.setError("Kullanıcı adı çok uzun.");
+                    return false;
+                } else if(!val.matches(noWhiteSpace)){
+                    username.setError("Kullanıcı adı özel karakter içeremez.");
+                    return false;
+                }
+                else{
+                    username.setError(null);
+                    fullname.setErrorEnabled(false);
+                    return true;
+                }
+            }
+            private Boolean validatePhoneNumber() {
+                String val = phonenumber.getEditText().getText().toString();
+
+                if (val.isEmpty()) {
+                    phonenumber.setError("Bu alanın doldurulması gerekiyor.");
+                    return false;
+                } else {
+                    phonenumber.setError(null);
+                    phonenumber.setErrorEnabled(false);
+                    return true;
+                }
+            }
+            private Boolean validateEmail() {
+                String val = email.getEditText().getText().toString();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                if (val.isEmpty()) {
+                    email.setError("Bu alanın doldurulması gerekiyor.");
+                    return false;
+                } else if (!val.matches(emailPattern)) {
+                    email.setError("E-mail adresi geçerli değil.");
+                    return false;
+                } else {
+                    email.setError(null);
+                    email.setErrorEnabled(false);
+                    return true;
+                }
+            }
+            private Boolean validatePassword() {
+                String val = password.getEditText().getText().toString();
+                String passwordVal = "^" +
+                        //"(?=.*[0-9])" +         //at least 1 digit
+                        //"(?=.*[a-z])" +         //at least 1 lower case letter
+                        //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                        "(?=.*[a-zA-Z])" +      //any letter
+                        "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                        "(?=\\S+$)" +           //no white spaces
+                        ".{4,}" +               //at least 4 characters
+                        "$";
+
+                if (val.isEmpty()) {
+                    password.setError("Bu alanın doldurulması gerekiyor.");
+                    return false;
+                } else if (!val.matches(passwordVal)) {
+                    password.setError("Parolanın yeterince güvenli değil.");
+                    return false;
+                } else {
+                    password.setError(null);
+                    password.setErrorEnabled(false);
+                    return true;
+                }
+            }
             @Override
             public void onClick(View view) {
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("accounts");
+
+                if(!validateName() | !validatePassword() | !validatePhoneNumber() | !validateEmail() | !validateUsername()){
+                    return;
+                }
 
                 //getting values
                 String FDfullname = fullname.getEditText().getText().toString();
@@ -71,6 +165,7 @@ public class SignUp extends AppCompatActivity {
             }
 
         });
+
 
 
         callDashboard.setOnClickListener (new View.OnClickListener() {
@@ -91,4 +186,9 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
 }

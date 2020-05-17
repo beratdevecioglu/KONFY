@@ -126,20 +126,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
         <Button
             android:id="@+id/enter_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
             android:background="#eb551b"
             android:text="KATIL"
-            android:transitionName="signup_trname"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:transitionName="signup_trname" />
 
         <Button
             android:id="@+id/aluser_btn"
