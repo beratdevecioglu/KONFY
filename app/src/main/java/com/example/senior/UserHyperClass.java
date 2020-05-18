@@ -2,6 +2,7 @@ package com.example.senior;
 
 public class UserHyperClass {
 
+
     String FDname, FDusername, FDphonenumber, FDemail, FDpassword;
 
     public UserHyperClass() {

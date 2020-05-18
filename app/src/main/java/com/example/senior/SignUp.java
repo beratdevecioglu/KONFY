@@ -160,7 +160,7 @@ public class SignUp extends AppCompatActivity {
 
                 UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDphonenumber, FDemail, FDpassword);
 
-                reference.child(FDphonenumber).setValue(helperClass);
+                reference.child(FDusername).setValue(helperClass);
 
             }
 
