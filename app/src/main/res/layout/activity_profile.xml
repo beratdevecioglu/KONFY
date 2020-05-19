@@ -15,7 +15,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:background="#eb551b">
 
             <ImageView
@@ -210,30 +210,13 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/username_profile"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Kullanıcı Adı"
-                android:textColorHint="#ffffff">
-
-                <com.google.android.material.textfield.TextInputEditText
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="10dp"
-                    android:textColor="#ffffff" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/password_profile"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="İsim"
+                android:hint="Şifre"
                 android:textColorHint="#ffffff"
                 app:passwordToggleEnabled="true">
 
@@ -254,6 +237,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="40dp"
                 android:background="#eb551b"
+                android:onClick="update"
                 android:text="Bilgileri Düzenle"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
