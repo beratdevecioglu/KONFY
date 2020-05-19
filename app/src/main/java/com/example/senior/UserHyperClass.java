@@ -36,8 +36,8 @@ public class UserHyperClass {
         return FDphonenumber;
     }
 
-    public void setFDphonenumber(String FDusername) {
-        this.FDusername = FDphonenumber;
+    public void setFDphonenumber(String FDphonenumber) {
+        this.FDphonenumber = FDphonenumber;
     }
 
     public String getFDemail() {

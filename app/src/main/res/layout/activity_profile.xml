@@ -32,19 +32,18 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/profile_image"
                 android:includeFontPadding="false"
-                android:text="Berat Devecioğlu"
                 android:textColor="#ffffff"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/show_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fullest_name"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/profile_image"
                 android:includeFontPadding="false"
-                android:text="beratdevecioglu@gmail.com"
                 android:textColor="#ffffff"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -173,7 +172,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
-                    android:text="Sadettin Berat Devecioğlu"
                     android:textColor="#ffffff" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -191,7 +189,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
-                    android:text="beratdevecioglu@gmail.com"
                     android:textColor="#ffffff" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -209,7 +206,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
-                    android:text="5350123456"
                     android:textColor="#ffffff" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -227,7 +223,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
-                    android:text="beratdevecioglu"
                     android:textColor="#ffffff" />
 
 
@@ -248,7 +243,6 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:inputType="textPassword"
-                    android:text="123456"
                     android:textColor="#ffffff" />
 
             </com.google.android.material.textfield.TextInputLayout>

@@ -111,7 +111,7 @@ public class Dashboard extends AppCompatActivity {
                                 String nameFD = dataSnapshot.child(enteredUsername).child("fdname").getValue(String.class);
                                 String usernameFD = dataSnapshot.child(enteredUsername).child("fdusername").getValue(String.class);
                                 String phonenumberFD = dataSnapshot.child(enteredUsername).child("fdphonenumber").getValue(String.class);
-                                String emailFD = dataSnapshot.child(enteredUsername).child("fddemail").getValue(String.class);
+                                String emailFD = dataSnapshot.child(enteredUsername).child("fdemail").getValue(String.class);
 
                                 Intent intent = new Intent(Dashboard.this, Profile.class);
 
