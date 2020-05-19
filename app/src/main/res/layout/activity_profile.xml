@@ -15,7 +15,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             android:background="#eb551b">
 
             <ImageView
@@ -54,7 +54,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="-40dp"
             android:padding="10dp">
 
             <com.google.android.material.card.MaterialCardView

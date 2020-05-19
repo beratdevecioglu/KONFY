@@ -127,7 +127,11 @@ public class Dashboard extends AppCompatActivity {
                                 password.setError("Kullanıcı adını veya parolayı hatalı girdiniz.");
                                 password.requestFocus();
                             }
-                        } 
+                        } else {
+                            username.setError("Kullanıcı adını veya parolayı hatalı girdiniz.");
+                            username.requestFocus();
+
+                        }
                     }
 
                     @Override
