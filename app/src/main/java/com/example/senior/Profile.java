@@ -76,7 +76,7 @@ public class Profile extends AppCompatActivity {
 
 
 
-        private boolean isPasswordChanged()  {
+        private boolean isPasswordChanged() {
             if(!_PASSWORD.equals(password.getEditText().getText().toString())) {
                 reference.child(_USERNAME).child("fdpassword").setValue(password.getEditText().getText().toString());
                 _PASSWORD = password.getEditText().getText().toString();

@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">SENIOR</string>
+    <string name="app_name">KONFY</string>
+
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restoran</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
+
+    <string name="featured_locations">All Featured</string>
+    <string name="featured_locations_desc">featured locations desc</string>
+    <string name="most_viewed">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">View All</string>
+
+
+
+
+
 </resources>

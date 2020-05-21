@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -161,7 +162,18 @@ public class SignUp extends AppCompatActivity {
                 UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDphonenumber, FDemail, FDpassword);
 
                 reference.child(FDusername).setValue(helperClass);
+                Intent intent = new Intent(SignUp.this, Dashboard.class);
+                Pair[] pairs = new Pair[5];
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(oppeningtext, "oppening_text");
+                pairs[2] = new Pair<View, String>(username, "username");
+                pairs[3] = new Pair<View, String>(password, "password");
+                pairs[4] = new Pair<View, String>(enter_btn, "enter_btn");
 
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
+                Toast.makeText(SignUp.this, "Üyelik işlemleriniz gerçekleştirildi", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
 
         });
@@ -183,6 +195,7 @@ public class SignUp extends AppCompatActivity {
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
                 startActivity(intent, options.toBundle());
+
             }
         });
     }
