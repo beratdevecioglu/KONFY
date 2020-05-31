@@ -3,8 +3,8 @@
 
     <corners
 
-        android:radius="2sp"/>
+        android:radius="25sp"/>
 
     <solid
-        android:color="@color/card1"/>
+        android:color="#285d7d"/>
 </shape>

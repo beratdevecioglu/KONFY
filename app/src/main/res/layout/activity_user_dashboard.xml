@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".UserDashboard"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#5ddfd4">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,19 +14,28 @@
         android:padding="20dp">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/menu1"
-            android:layout_centerVertical="true"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_menu_foreground" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/menu2"
+            android:id="@+id/logo_image"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:elevation="0dp"
+            android:transitionName="logo_image"
+            android:src="@mipmap/ic_konfy_iconn_foreground" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_search_foreground"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:padding="5dp"
-            android:background="@color/banner_background"/>
+            android:padding="5dp"/>
 
     </RelativeLayout>
     
@@ -36,53 +45,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/app_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textSize="24sp"
-                    android:layout_centerHorizontal="true"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/app_name"
-                    android:background="#ffffff"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:elevation="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/search_text"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/search_icon"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"/>
-
-                </RelativeLayout>
-
-
-
-            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -93,19 +57,19 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_margin="2dp">
 
                     <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:background="@drawable/card_1"
-                        android:elevation="8dp"
-                        android:layout_margin="10dp">
+                        android:elevation="8dp">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/rest_icon"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@mipmap/ic_academia_foreground"
                             android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
@@ -114,27 +78,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="@string/restaurants"
-                        android:gravity="center_horizontal"/>
+                        android:text="@string/akademik"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textColor="#285d7d"
+                        android:textSize="15dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_margin="2dp">
 
                     <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:background="@drawable/card_1"
-                        android:elevation="8dp"
-                        android:layout_margin="10dp">
+                        android:elevation="8dp">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/rest_icon"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@mipmap/ic_science_foreground"
                             android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
@@ -142,29 +109,30 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        android:textAlignment="center"
-                        android:text="@string/restaurants"
-                        android:gravity="center_horizontal"/>
+                        android:text="@string/bilim"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textColor="#285d7d"
+                        android:textSize="15dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_margin="2dp">
 
                     <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:background="@drawable/card_1"
-                        android:elevation="8dp"
-                        android:layout_margin="10dp">
+                        android:elevation="8dp">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/rest_icon"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@mipmap/ic_kodlama_foreground"
                             android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
@@ -172,28 +140,30 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="@string/restaurants"
-                        android:gravity="center_horizontal"/>
+                        android:text="@string/yazılım"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textColor="#285d7d"
+                        android:textSize="15dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_margin="2dp">
 
                     <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
                         android:background="@drawable/card_1"
-                        android:elevation="8dp"
-                        android:layout_margin="10dp">
+                        android:elevation="8dp">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/rest_icon"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@mipmap/ic_sport_foreground"
                             android:layout_centerInParent="true"/>
 
                     </RelativeLayout>
@@ -201,9 +171,42 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="@string/restaurants"
-                        android:gravity="center_horizontal"/>
+                        android:text="@string/spor"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textColor="#285d7d"
+                        android:textSize="15dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:background="@drawable/card_1"
+                        android:elevation="8dp">
+
+                        <ImageView
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:src="@mipmap/ic_genel_foreground"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textColor="#285d7d"
+                        android:textSize="15dp"/>
 
                 </LinearLayout>
 
@@ -212,49 +215,73 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/banner_background">
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GÜNCEL KONFYRANSLAR"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:textAllCaps="true"
+                    android:layout_marginLeft="10dp"/>
 
 
-                <LinearLayout
-                    android:id="@id/featured_background"
-                    android:layout_width="170dp"
-                    android:layout_height="200dp"
-                    android:background="@color/colorAccent"
-                    android:layout_margin="10dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="25dp"
-                        android:layout_margin="10dp"
-                        android:textColor="@color/colorAccent"
-                        android:layout_marginTop="50dp"
-                        android:textAllCaps="true"
-                        android:layout_marginLeft="10dp"/>
+                <androidx.recyclerview.widget.RecyclerView
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/featured_locations_desc"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="280dp"
-                        android:background="@color/home_backgorund" />
-
-                </LinearLayout>
-
+                    android:id="@+id/guncel_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="320dp"
+                    android:background="#eb551b"/>
 
             </RelativeLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POPÜLER KONFYRANSLAR"
+                    android:textSize="20sp"
+                    android:textColor="#285d7d"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:padding="20dp">
 
                 <RelativeLayout
@@ -264,9 +291,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/most_viewed"
+                        android:text="POPÜLER KONFYRANSLAR"
                         android:textSize="20sp"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="#285d7d"
                         android:textAllCaps="true"/>
 
                     <TextView
@@ -283,20 +310,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"/>
 
-
             </LinearLayout>
-
-
 
         </LinearLayout>
 
-
-
-
     </ScrollView>
-
-
-
-
 
 </LinearLayout>
