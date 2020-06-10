@@ -7,6 +7,15 @@
     <string name="spor">SPOR</string>
     <string name="all">GENEL</string>
 
+    <string name="menu_anasayfa">ANASAYFA</string>
+    <string name="menu_arama">ARAMA</string>
+    <string name="menu_konfy">TÜM KONFYRANSLAR</string>
+    <string name="menu_add">KONFYRANS OLUŞTUR</string>
+
+    <string name="menu_duzenle">Bilgileri Düzenle</string>
+    <string name="menu_cıkıs">Çıkış Yap</string>
+
+
     <string name="featured_locations">All Featured</string>
     <string name="featured_locations_desc">ALİİİ VEELİİİ</string>
     <string name="most_viewed">Most Viewed</string>

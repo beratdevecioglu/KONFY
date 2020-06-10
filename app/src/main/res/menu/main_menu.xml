@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="PROFİL">
+
+    <menu>
+
+        <group android:checkableBehavior="single">
+
+            <item
+                android:id="@+id/menu_profil"
+                android:title="@string/menu_duzenle"/>
+
+            <item
+                android:id="@+id/menu_add"
+                android:title="@string/menu_add"/>
+
+            <item
+                android:id="@+id/menu_cıkıs"
+                android:title="@string/menu_cıkıs"/>
+
+        </group>
+
+
+
+    </menu>
+
+
+
+
+</item>
+
+    <item android:title="KONFYRANSLAR">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/menu_akademik"
+                    android:title="@string/akademik"/>
+
+                <item
+                    android:id="@+id/menu_bilim"
+                    android:title="@string/yazılım"/>
+
+                <item
+                    android:id="@+id/menu_yazilim"
+                    android:title="@string/yazılım"/>
+
+                <item
+                    android:id="@+id/menu_spor"
+                    android:title="@string/spor"/>
+
+                <item
+                    android:id="@+id/menu_genel"
+                    android:title="@string/all"/>
+
+            </group>
+
+
+
+        </menu>
+
+
+
+
+    </item>
+
+</menu>
