@@ -9,14 +9,14 @@
     android:background="#5ddfd4">
 
     <ImageView
-        android:id="@+id/logo_image"
+        android:id="@+id/user_avatar"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         android:elevation="0dp"
         android:transitionName="logo_image"
-        android:src="@mipmap/ic_konfy_iconn_foreground" />
+        android:src="@mipmap/ic_add_photo" />
 
     <TextView
         android:id="@+id/openning_text"
