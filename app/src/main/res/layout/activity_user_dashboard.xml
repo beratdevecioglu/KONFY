@@ -50,7 +50,8 @@
             android:transitionName="logo_image"
             android:src="@mipmap/ic_konfy_iconn_foreground" />
 
-        <ImageView
+        <Button
+            android:id="@+id/konfy_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@mipmap/ic_search_foreground"
@@ -306,5 +307,6 @@
 
 
     </LinearLayout>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

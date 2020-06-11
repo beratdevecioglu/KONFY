@@ -1,9 +1,15 @@
 package com.example.senior;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -48,8 +54,6 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.password);
         enter_btn = findViewById(R.id.enter_btn);
         aluser_btn = findViewById(R.id.aluser_btn);
-
-
 
 
 
@@ -199,9 +203,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 
 }

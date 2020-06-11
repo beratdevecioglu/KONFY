@@ -7,17 +7,29 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Pair;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.senior.HomeAdapter.GuncelAdapter;
 import com.example.senior.HomeAdapter.GuncelHelperClass;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -29,6 +41,15 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView.Adapter adapter;
     ImageView menuBtn;
     LinearLayout dashboardView;
+    Button profile_btn, konfybtn;
+
+    //FirebaseDatabase mAuth;
+    //FirebaseUser currentUser;
+    Dialog konfyEkle;
+    ImageView konfyAvatar,konfyPoster,konfyAddBtn;
+    TextView konfyBaslik,konfyAciklama, konfyLink, konfyKategori;
+    ProgressBar konfyClickProgress;
+
 
     //Drawer
 
@@ -47,6 +68,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         guncelRecycler = findViewById(R.id.guncel_recycler);
         menuBtn = findViewById(R.id.menu_button);
         dashboardView = findViewById(R.id.dashboard);
+        profile_btn = findViewById(R.id.profil_btn);
 
         //Menu
 
@@ -58,6 +80,56 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
         guncelRecycler();
+
+        // ini popup
+        addingKonfy();
+
+
+
+        konfybtn = findViewById(R.id.konfy_btn);
+        konfybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                konfyEkle.show();
+            }
+        });
+
+
+
+
+    }
+
+    private void addingKonfy() {
+
+        konfyEkle = new Dialog(this);
+        konfyEkle.setContentView(R.layout.add_konfy);
+        konfyEkle.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        konfyEkle.getWindow().setLayout(Toolbar.LayoutParams.MATCH_PARENT,Toolbar.LayoutParams.WRAP_CONTENT);
+        konfyEkle.getWindow().getAttributes().gravity = Gravity.TOP;
+
+        konfyAvatar = konfyEkle.findViewById(R.id.kullanıcı_avatar);
+        konfyPoster = konfyEkle.findViewById(R.id.konfy_poster);
+        konfyBaslik = konfyEkle.findViewById(R.id.konfy_bas);
+        konfyLink = konfyEkle.findViewById(R.id.konfy_link);
+        konfyKategori = konfyEkle.findViewById(R.id.konfy_kategori);
+        konfyAciklama = konfyEkle.findViewById(R.id.konfy_aciklamasi);
+        konfyAddBtn = konfyEkle.findViewById(R.id.konfy_ekle);
+        konfyClickProgress = konfyEkle.findViewById(R.id.add_konfy_progressBar);
+
+        konfyAddBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                konfyAddBtn.setVisibility(View.INVISIBLE);
+                konfyClickProgress.setVisibility(View.VISIBLE);
+
+
+
+
+
+            }
+        });
+
     }
 
 
@@ -115,6 +187,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()){
+
+            case R.id.profil_btn:
+                Intent intent = new Intent(UserDashboard.this,Profile.class);
+                startActivity(intent);
+                break;
+        }
         return true;
     }
 
@@ -132,7 +212,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         adapter = new GuncelAdapter(guncelKonfyranslar);
         guncelRecycler.setAdapter(adapter);
     }
-
 
 
 }
