@@ -1,83 +1,47 @@
 package com.example.senior.Models;
 
-import com.google.firebase.database.ServerValue;
 
-public class Konfy {
+public class Konfy {String FDbaslik, FDkategori, FDkonfylink, FDkonfyaciklama;
 
-
-    private String konfyKey;
-    private String baslik;
-    private String aciklama;
-    private String poster;
-    private String kullanıcıAdı;
-    private String kullanıcıAvatar;
-    private Object zaman;
-
-    public Konfy(String baslik, String aciklama, String poster, String kullanıcıAdı, String kullanıcıAvatar, Object zaman) {
-        this.baslik = baslik;
-        this.aciklama = aciklama;
-        this.poster = poster;
-        this.kullanıcıAdı = kullanıcıAdı;
-        this.kullanıcıAvatar = kullanıcıAvatar;
-        this.zaman = ServerValue.TIMESTAMP;
+    public Konfy() {
     }
 
-    public Konfy(String s, String toString, String imageDownlaodLink, String uid, String string) {
+    public Konfy(String FDbaslik, String FDkategori, String FDkonfylink, String FDkonfyaciklama) {
+        this.FDbaslik = FDbaslik;
+        this.FDkategori = FDkategori;
+        this.FDkonfylink = FDkonfylink;
+        this.FDkonfyaciklama = FDkonfyaciklama;
     }
 
-    public String getKonfyKey() {
-        return konfyKey;
+    public String getFDbaslik() {
+        return FDbaslik;
     }
 
-    public void setKonfyKey(String konfyKey) {
-        this.konfyKey = konfyKey;
+    public void setFDbaslik(String FDbaslik) {
+        this.FDbaslik = FDbaslik;
     }
 
-    public String getBaslik() {
-        return baslik;
+    public String getFDkategori() {
+        return FDkategori;
     }
 
-    public String getAciklama() {
-        return aciklama;
+    public void setFDkategori(String FDkategori) {
+        this.FDkategori = FDkategori;
     }
 
-    public String getPoster() {
-        return poster;
+    public String getFDkonfylink() {
+        return FDkonfylink;
     }
 
-    public String getKullanıcıAdı() {
-        return kullanıcıAdı;
+    public void setFDkonfylink(String FDkonfylink) {
+        this.FDkonfylink = FDkonfylink;
     }
 
-    public String getKullanıcıAvatar() {
-        return kullanıcıAvatar;
+    public String getFDkonfyaciklama() {
+        return FDkonfyaciklama;
     }
 
-    public Object getZaman() {
-        return zaman;
-    }
-
-    public void setBaslik(String baslik) {
-        this.baslik = baslik;
-    }
-
-    public void setAciklama(String aciklama) {
-        this.aciklama = aciklama;
-    }
-
-    public void setPoster(String poster) {
-        this.poster = poster;
-    }
-
-    public void setKullanıcıAdı(String kullanıcıAdı) {
-        this.kullanıcıAdı = kullanıcıAdı;
-    }
-
-    public void setKullanıcıAvatar(String kullanıcıAvatar) {
-        this.kullanıcıAvatar = kullanıcıAvatar;
-    }
-
-    public void setZaman(Object zaman) {
-        this.zaman = zaman;
+    public void setFDkonfyaciklama(String FDkonfyaciklama) {
+        this.FDkonfyaciklama = FDkonfyaciklama;
     }
 }

@@ -38,6 +38,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -57,13 +58,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView.Adapter adapter;
     ImageView menuBtn;
     LinearLayout dashboardView;
-    Button profile_btn, konfybtn;
+    Button profile_btn;
     private Uri secilenPoster = null;
 
-    //FirebaseDatabase mAuth;
-    //FirebaseUser currentUser;
-    FirebaseAuth mAuth;
-    FirebaseUser currentUser ;
+    Button callAnasayfa;
+    TextView fullNameLabel, emailLabel;
+    TextInputLayout fullname, username, phonenumber, email, password;
+
+    String _NAME, _EMAIL, _PHONENUMBER, _USERNAME, _PASSWORD;
+
+    DatabaseReference reference;
+
+
     Dialog konfyEkle;
     ImageView konfyAvatar,konfyPoster,konfyAddBtn;
     TextView konfyBaslik,konfyAciklama, konfyLink, konfyKategori;
@@ -81,11 +87,23 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_dashboard);
 
+        //
+        reference = FirebaseDatabase.getInstance().getReference("accounts");
+        //Hooks
 
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
+        fullNameLabel = findViewById(R.id.fullest_name);
+        emailLabel = findViewById(R.id.show_email);
+        fullname = findViewById(R.id.fullest_name_profile);
+        email = findViewById(R.id.email_profile);
+        phonenumber = findViewById(R.id.phonenumber_profile);
+        password = findViewById(R.id.password_profile);
+
+        showAllUserData();
 
 
+
+
+        //
         //Hooks
 
         guncelRecycler = findViewById(R.id.guncel_recycler);
@@ -104,206 +122,37 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         guncelRecycler();
 
-        // ini popup
-        addingKonfy();
-        setupImageKonfy();
 
-
-
-        konfybtn = findViewById(R.id.konfy_btn);
-        konfybtn.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton callKonfy = findViewById(R.id.konfy_btn);
+        callKonfy.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                konfyEkle.show();
-            }
-        });
+                Intent intent = new Intent(UserDashboard.this, KonfyOlustur.class);
 
-
-
-
-    }
-
-    private void setupImageKonfy() {
-
-        konfyPoster.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // here when image clicked we need to open the gallery
-                // before we open the gallery we need to check if our app have the access to user files
-                // we did this before in register activity I'm just going to copy the code to save time ...
-
-                checkAndRequestForPermission();
-
-
-            }
-        });
-    }
-
-    private void checkAndRequestForPermission() {
-
-
-        if (ContextCompat.checkSelfPermission(UserDashboard.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(UserDashboard.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-                Toast.makeText(UserDashboard.this,"Galerinize ulaşabilmemiz için izniniz gerekiyor.",Toast.LENGTH_SHORT).show();
-
-            }
-
-            else
-            {
-                ActivityCompat.requestPermissions(UserDashboard.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        PReqCode);
-            }
-
-        }
-        else
-            // everything goes well : we have permission to access user gallery
-            openGallery();
-
-    }
-
-    private void openGallery() {
-
-        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent,REQUESCODE);
-    }
-
-    // when user picked an image ...
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK && requestCode == REQUESCODE && data != null ) {
-
-            // the user has successfully picked an image
-            // we need to save its reference to a Uri variable
-            secilenPoster = data.getData();
-            konfyPoster.setImageURI(secilenPoster);
-        }
-
-
-    }
-
-
-    private void addingKonfy() {
-
-        konfyEkle = new Dialog(this);
-        konfyEkle.setContentView(R.layout.add_konfy);
-        konfyEkle.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        konfyEkle.getWindow().setLayout(Toolbar.LayoutParams.MATCH_PARENT,Toolbar.LayoutParams.WRAP_CONTENT);
-        konfyEkle.getWindow().getAttributes().gravity = Gravity.TOP;
-
-        konfyAvatar = konfyEkle.findViewById(R.id.kullanıcı_avatar);
-        konfyPoster = konfyEkle.findViewById(R.id.konfy_poster);
-        konfyBaslik = konfyEkle.findViewById(R.id.konfy_bas);
-        konfyLink = konfyEkle.findViewById(R.id.konfy_link);
-        konfyKategori = konfyEkle.findViewById(R.id.konfy_kategori);
-        konfyAciklama = konfyEkle.findViewById(R.id.konfy_aciklamasi);
-        konfyAddBtn = konfyEkle.findViewById(R.id.konfy_ekle);
-        konfyClickProgress = konfyEkle.findViewById(R.id.add_konfy_progressBar);
-
-
-        konfyAddBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                konfyAddBtn.setVisibility(View.INVISIBLE);
-                konfyClickProgress.setVisibility(View.VISIBLE);
-
-                if (!konfyBaslik.getText().toString().isEmpty()
-                        && !konfyAciklama.getText().toString().isEmpty()
-                        && secilenPoster != null ) {
-
-                    //everything is okey no empty or null value
-                    // first we need to upload post Image
-                    // access firebase storage
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("konfy_posters");
-                    final StorageReference posterKonumu = storageReference.child(secilenPoster.getLastPathSegment());
-                    posterKonumu.putFile(secilenPoster).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                            posterKonumu.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    String imageDownlaodLink = uri.toString();
-                                    // create post Object
-                                    Konfy post = new Konfy(konfyBaslik.getText().toString(),
-                                            konfyAciklama.getText().toString(),
-                                            imageDownlaodLink,
-                                            currentUser.getUid(),
-                                            currentUser.getPhotoUrl().toString());
-
-                                    // Add post to firebase database
-
-                                    dataKonfy(post);
-
-
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    // something goes wrong uploading picture
-
-                                    showMessage(e.getMessage());
-                                    konfyClickProgress.setVisibility(View.INVISIBLE);
-                                    konfyAddBtn.setVisibility(View.VISIBLE);
-
-
-
-                                }
-                            });
-
-                        }
-                    });
-                }
-                else {
-                    showMessage("Tüm alanların doldurulması gerekiyor.") ;
-                    konfyAddBtn.setVisibility(View.VISIBLE);
-                    konfyClickProgress.setVisibility(View.INVISIBLE);
-
-                }
+                startActivity(intent);
 
             }
         });
 
     }
 
-    private void dataKonfy(Konfy post) {
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Konfyranslar").push();
+    private void showAllUserData(){
 
-        // get post unique ID and upadte post key
-        String key = myRef.getKey();
-        post.setKonfyKey(key);
+        Intent intent = getIntent();
 
-
-        // add post data to firebase database
-
-        myRef.setValue(post).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                showMessage("Konfyrans başarıyla yayınlandı.");
-                konfyClickProgress.setVisibility(View.INVISIBLE);
-                konfyAddBtn.setVisibility(View.VISIBLE);
-                konfyEkle.dismiss();
-            }
-        });
+        _NAME = intent.getStringExtra("fdname");
+        _USERNAME = intent.getStringExtra("fdusername");
+        _PHONENUMBER = intent.getStringExtra("fdphonenumber");
+        _EMAIL = intent.getStringExtra("fdemail");
+        _PASSWORD = intent.getStringExtra("fdpassword");
 
 
+        fullname.getEditText().setText(_NAME);
+        email.getEditText().setText(_EMAIL);
+        phonenumber.getEditText().setText(_PHONENUMBER);
+        password.getEditText().setText(_PASSWORD);
 
-
-
-    }
-
-    private void showMessage(String errormess) {
-
-        Toast.makeText(UserDashboard.this,errormess,Toast.LENGTH_LONG).show();
 
     }
 
@@ -315,9 +164,12 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (drawerLayout.isDrawerVisible(GravityCompat.START))
                     drawerLayout.closeDrawer(GravityCompat.START);
                 else drawerLayout.openDrawer(GravityCompat.START);
@@ -329,28 +181,28 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     private void animateMenuDrawer() {
 
-            //Add any color or remove it to use the default one!
-            //To make it transparent use Color.Transparent in side setScrimColor();
-            drawerLayout.setScrimColor(getResources().getColor(R.color.colorFirst));
-            drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-                @Override
-                public void onDrawerSlide(View drawerView, float slideOffset) {
+        //Add any color or remove it to use the default one!
+        //To make it transparent use Color.Transparent in side setScrimColor();
+        drawerLayout.setScrimColor(getResources().getColor(R.color.colorFirst));
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
 
-                    // Scale the View based on current slide offset
-                    final float diffScaledOffset = slideOffset * (1 - END_SCALE);
-                    final float offsetScale = 1 - diffScaledOffset;
-                    dashboardView.setScaleX(offsetScale);
-                    dashboardView.setScaleY(offsetScale);
+                // Scale the View based on current slide offset
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                dashboardView.setScaleX(offsetScale);
+                dashboardView.setScaleY(offsetScale);
 
-                    // Translate the View, accounting for the scaled width
-                    final float xOffset = drawerView.getWidth() * slideOffset;
-                    final float xOffsetDiff = dashboardView.getWidth() * diffScaledOffset / 2;
-                    final float xTranslation = xOffset - xOffsetDiff;
-                    dashboardView.setTranslationX(xTranslation);
-                }
-            });
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = dashboardView.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                dashboardView.setTranslationX(xTranslation);
+            }
+        });
 
-        }
+    }
 
 
     @Override
@@ -365,8 +217,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         switch (menuItem.getItemId()){
 
+
             case R.id.profil_btn:
+
                 Intent intent = new Intent(UserDashboard.this,Profile.class);
+
+
+                intent.putExtra("fdname", _NAME);
+                intent.putExtra("fdusername", _USERNAME);
+                intent.putExtra("fdphonenumber", _PHONENUMBER);
+                intent.putExtra("fdemail", _EMAIL);
+                intent.putExtra("fdpassword", _PASSWORD);
+
                 startActivity(intent);
                 break;
         }

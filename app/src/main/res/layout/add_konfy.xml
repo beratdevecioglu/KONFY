@@ -19,13 +19,13 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:background="@drawable/add_konfy_style"
         android:id="@+id/konfy_bas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/add_konfy_style"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Konfy Başlığı"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/kullanıcı_avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textWebEditText"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/konfy_bas" />

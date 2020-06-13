@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp"
+    tools:context=".KonfyOlustur"
     android:orientation="vertical"
-    android:background="#5ddfd4">
+    android:background="@color/colorThird">
 
     <ImageView
-        android:id="@+id/logo_image"
+        android:id="@+id/konfy_poster"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         android:elevation="0dp"
         android:transitionName="logo_image"
-        android:src="@mipmap/ic_add_photo_foreground" />
+        android:src="@mipmap/ic_upload" />
 
     <TextView
         android:id="@+id/openning_text"
@@ -28,7 +28,7 @@
         android:elevation="0dp"
         android:textColor="#fff"
         android:textStyle="bold"
-        android:text="Konfy ailesine hoş geldin!"
+        android:text="Hadi başlayalım!"
         android:textSize="18sp"/>
 
     <LinearLayout
@@ -43,9 +43,9 @@
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fullname"
+            android:id="@+id/konfy_baslik"
             android:textColorHint="#ffffff"
-            android:hint="İsim"
+            android:hint="Konfy Başlığı"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -61,9 +61,9 @@
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:id="@+id/konfy_kategori"
             android:textColorHint="#ffffff"
-            android:hint="Kullanıcı Adı"
+            android:hint="Kategori"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -78,9 +78,9 @@
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/phonenumber"
+            android:id="@+id/konfy_link"
             android:textColorHint="#ffffff"
-            android:hint="Telefon Numarası"
+            android:hint="KonfyLink"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -95,33 +95,15 @@
             android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
+            android:id="@+id/konfy_aciklamasi"
             android:textColorHint="#ffffff"
-            android:hint="E-Mail Adresi"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:textColorHint="#ffffff"
-            android:hint="Şifre"
-            app:passwordToggleEnabled="true"
+            android:hint="Konfy Açıklaması"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:transitionName="password_trname"/>
+                android:padding="75dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,26 +115,14 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-            android:background="#eb551b"
-            android:text="KATIL"
+            android:background="@color/colorFirst"
+            android:text="OLUŞTUR"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold"
             android:transitionName="signup_trname" />
 
-        <Button
-            android:id="@+id/aluser_btn"
-            android:transitionName="bottun_trname"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="25dp"
-            android:background="#285d7d"
-            android:text="Zaten üye misin?"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+
 
     </LinearLayout>
 

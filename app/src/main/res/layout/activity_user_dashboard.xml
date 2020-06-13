@@ -8,6 +8,8 @@
     tools:context=".UserDashboard"
     android:id="@+id/drawer_layout">
 
+
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
@@ -19,7 +21,9 @@
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/main_menu"/>
 
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/dashboard"
         android:layout_width="match_parent"
@@ -38,7 +42,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_menu_foreground"/>
+            android:src="@mipmap/ic_menu"/>
 
         <ImageView
             android:id="@+id/logo_image"
@@ -50,20 +54,22 @@
             android:transitionName="logo_image"
             android:src="@mipmap/ic_konfy_iconn_foreground" />
 
-        <Button
-            android:id="@+id/konfy_btn"
+        <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/ic_search_foreground"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:src="@mipmap/ic_search"/>
 
     </RelativeLayout>
-    
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -253,14 +259,13 @@
                     android:layout_marginLeft="10dp"/>
 
 
-
                 <androidx.recyclerview.widget.RecyclerView
 
                     android:id="@+id/guncel_recycler"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="25dp"
                     android:layout_height="320dp"
-                    android:background="#eb551b"/>
+                    android:layout_marginTop="25dp"
+                    android:background="#eb551b" />
 
             </RelativeLayout>
 
@@ -298,15 +303,113 @@
                 android:layout_height="100dp"/>
 
         </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:orientation="vertical"
+                android:padding="20dp">
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fullest_name_profile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="İsim"
+                    android:textColorHint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:textColor="#ffffff" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_profile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="E-Mail"
+                    android:textColorHint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:textColor="#ffffff" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phonenumber_profile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Telefon"
+                    android:textColorHint="#ffffff">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:textColor="#ffffff" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_profile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Şifre"
+                    android:textColorHint="#ffffff"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:inputType="textPassword"
+                        android:textColor="#ffffff" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
+
+
     </ScrollView>
+
 
 
     </LinearLayout>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/konfy_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/ic_plus_foreground"
+            app:fabSize="normal"
+            app:backgroundTint="@color/colorWhite"
+            app:elevation="10dp"/>
+
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
