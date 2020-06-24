@@ -9,6 +9,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Profile extends AppCompatActivity {
 
 
-    Button callAnasayfa;
+    ImageView home_btn;
     TextView fullNameLabel, emailLabel;
     TextInputLayout  fullname, username, phonenumber, email, password;
 
@@ -35,7 +36,7 @@ public class Profile extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference("accounts");
         //Hooks
-        callAnasayfa = findViewById(R.id.anasayfa_btn);
+        home_btn = findViewById(R.id.home_btn);
         fullNameLabel = findViewById(R.id.fullest_name);
         emailLabel = findViewById(R.id.show_email);
         fullname = findViewById(R.id.fullest_name_profile);
@@ -45,7 +46,7 @@ public class Profile extends AppCompatActivity {
 
         showAllUserData();
 
-        callAnasayfa.setOnClickListener (new View.OnClickListener() {
+        home_btn.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Profile.this, UserDashboard.class);

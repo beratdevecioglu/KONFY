@@ -10,7 +10,7 @@
     <string name="menu_anasayfa">ANASAYFA</string>
     <string name="menu_arama">ARAMA</string>
     <string name="menu_konfy">TÜM KONFYRANSLAR</string>
-    <string name="menu_add">KONFYRANS OLUŞTUR</string>
+    <string name="menu_add">Konfyrans Oluştur</string>
 
     <string name="menu_duzenle">Bilgileri Düzenle</string>
     <string name="menu_cıkıs">Çıkış Yap</string>

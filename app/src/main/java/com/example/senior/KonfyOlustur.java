@@ -20,17 +20,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.senior.Models.Konfy;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.UUID;
 
+import static com.example.senior.Models.Konfy.*;
+
 public class KonfyOlustur extends AppCompatActivity {
 
-    ImageView ImgUserPhoto;
+    ImageView KonfyPoster;
     static int PReqCode = 1 ;
     static int REQUESCODE = 1 ;
     Uri pickedImgUri ;
@@ -139,12 +145,35 @@ public class KonfyOlustur extends AppCompatActivity {
                 String FDkategori = konfykategori.getEditText().getText().toString();
                 String FDkonfylink = konfylink.getEditText().getText().toString();
                 String FDaciklamasi = konfyaciklamasi.getEditText().getText().toString();
+                String FDkonfyposterlink = konfyposter.toString();
 
-                Konfy helperClass = new Konfy(FDbaslik, FDkategori, FDkonfylink, FDaciklamasi);
+                UploadTask uploadTask = storageReference.putFile(pickedImgUri);
+
+                uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // this is where we will end up if our image uploads successfully.
+                        StorageMetadata snapshotMetadata = taskSnapshot.getMetadata();
+                        Task<Uri> downloadUrl = storageReference.getDownloadUrl();
+                        downloadUrl.addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String imageReference = uri.toString();
+                                reference.child("Konfyranslar").child("imageUrl").setValue(imageReference);
+
+                            }
+                        });
+                    }
+                });
+
+
+                Konfy helperClass = new Konfy(FDbaslik, FDkategori, FDkonfylink, FDaciklamasi, FDkonfyposterlink);
                 StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
                 ref.putFile(pickedImgUri) ;
 
-                reference.child(FDkonfylink).setValue(helperClass);
+                reference.child(FDbaslik).setValue(helperClass);
                 Intent intent = new Intent(KonfyOlustur.this, UserDashboard.class);
                 Toast.makeText(KonfyOlustur.this, "Konfyransınız başarıyla yüklendi.", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
@@ -154,9 +183,9 @@ public class KonfyOlustur extends AppCompatActivity {
 
         });
 
-        ImgUserPhoto = findViewById(R.id.konfy_poster) ;
+        KonfyPoster = findViewById(R.id.konfy_poster) ;
 
-        ImgUserPhoto.setOnClickListener(new View.OnClickListener() {
+        KonfyPoster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -185,7 +214,6 @@ public class KonfyOlustur extends AppCompatActivity {
 
 
     private void openGallery() {
-        //TODO: open gallery intent and wait for user to pick an image !
 
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
@@ -226,7 +254,7 @@ public class KonfyOlustur extends AppCompatActivity {
             // the user has successfully picked an image
             // we need to save its reference to a Uri variable
             pickedImgUri = data.getData() ;
-            ImgUserPhoto.setImageURI(pickedImgUri);
+            KonfyPoster.setImageURI(pickedImgUri);
 
 
         }

@@ -65,335 +65,322 @@
     </RelativeLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="2dp">
-
-                    <RelativeLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@drawable/card_1"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/ic_academia_foreground"
-                            android:layout_centerInParent="true"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="@string/akademik"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textColor="#285d7d"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="2dp">
-
-                    <RelativeLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@drawable/card_1"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/ic_science_foreground"
-                            android:layout_centerInParent="true"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bilim"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textColor="#285d7d"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="2dp">
-
-                    <RelativeLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@drawable/card_1"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/ic_kodlama_foreground"
-                            android:layout_centerInParent="true"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/yazılım"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textColor="#285d7d"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="2dp">
-
-                    <RelativeLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@drawable/card_1"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/ic_sport_foreground"
-                            android:layout_centerInParent="true"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/spor"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textColor="#285d7d"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="2dp">
-
-                    <RelativeLayout
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:background="@drawable/card_1"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/ic_genel_foreground"
-                            android:layout_centerInParent="true"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/all"
-                        android:gravity="center_horizontal"
-                        android:textStyle="bold"
-                        android:textColor="#285d7d"
-                        android:textSize="15dp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GÜNCEL KONFYRANSLAR"
-                    android:textStyle="bold"
-                    android:textColor="#ffffff"
-                    android:textSize="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:textAllCaps="true"
-                    android:layout_marginLeft="10dp"/>
+            android:layout_height="match_parent">
 
 
-                <androidx.recyclerview.widget.RecyclerView
-
-                    android:id="@+id/guncel_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="320dp"
-                    android:layout_marginTop="25dp"
-                    android:background="#eb551b" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            android:padding="20dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="POPÜLER KONFYRANSLAR"
-                    android:textSize="20sp"
-                    android:textColor="#285d7d"
-                    android:textAllCaps="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/view_all"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"/>
-
-            </RelativeLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"/>
-
-        </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-15dp"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/fullest_name_profile"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/card_1"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_academia_foreground" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/akademik"
+                            android:textAlignment="center"
+                            android:textColor="#285d7d"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/card_1"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_science_foreground" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/bilim"
+                            android:textColor="#285d7d"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/card_1"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_kodlama_foreground" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/yazılım"
+                            android:textColor="#285d7d"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/card_1"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_sport_foreground" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/spor"
+                            android:textColor="#285d7d"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:background="@drawable/card_1"
+                            android:elevation="8dp">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/ic_genel_foreground" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/all"
+                            android:textColor="#285d7d"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="İsim"
-                    android:textColorHint="#ffffff">
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="10dp"
-                        android:textColor="#ffffff" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="GÜNCEL KONFYRANSLAR"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorThird"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email_profile"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <androidx.recyclerview.widget.RecyclerView
+
+                        android:id="@+id/guncel_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:layout_marginTop="25dp"
+                        android:background="#eb551b" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="E-Mail"
-                    android:textColorHint="#ffffff">
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="10dp"
-                        android:textColor="#ffffff" />
+                        android:layout_marginLeft="10dp"
+                        android:text="En Son Eklenenler"
+                        android:textColor="@color/colorThird"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/phonenumber_profile"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <androidx.recyclerview.widget.RecyclerView
+
+                        android:id="@+id/last_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@color/colorSecond" />
+
+                </RelativeLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Telefon"
-                    android:textColorHint="#ffffff">
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-15dp"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fullest_name_profile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="10dp"
-                        android:textColor="#ffffff" />
+                        android:hint="İsim"
+                        android:textColorHint="#ffffff">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
 
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:textColor="#ffffff" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/password_profile"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Şifre"
-                    android:textColorHint="#ffffff"
-                    app:passwordToggleEnabled="true">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email_profile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="10dp"
-                        android:inputType="textPassword"
-                        android:textColor="#ffffff" />
+                        android:hint="E-Mail"
+                        android:textColorHint="#ffffff">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:textColor="#ffffff" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phonenumber_profile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Telefon"
+                        android:textColorHint="#ffffff">
+
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:textColor="#ffffff" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/password_profile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Şifre"
+                        android:textColorHint="#ffffff"
+                        app:passwordToggleEnabled="true">
 
+                        <com.google.android.material.textfield.TextInputEditText
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:inputType="textPassword"
+                            android:textColor="#ffffff" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
 
 
-        </LinearLayout>
-
-
-
-    </ScrollView>
-
+        </ScrollView>
 
 
     </LinearLayout>

@@ -33,6 +33,7 @@ import android.widget.Toolbar;
 
 import com.example.senior.HomeAdapter.GuncelAdapter;
 import com.example.senior.HomeAdapter.GuncelHelperClass;
+import com.example.senior.HomeAdapter.LastAdapter;
 import com.example.senior.Models.Konfy;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,7 +55,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     private static final int PReqCode = 2;
     private static final int REQUESCODE = 2;
     static final float END_SCALE = 0.7f;
-    RecyclerView guncelRecycler;
+    RecyclerView guncelRecycler, lastRecycler;
     RecyclerView.Adapter adapter;
     ImageView menuBtn;
     LinearLayout dashboardView;
@@ -107,6 +108,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //Hooks
 
         guncelRecycler = findViewById(R.id.guncel_recycler);
+        lastRecycler = findViewById(R.id.last_recycler);
+
         menuBtn = findViewById(R.id.menu_button);
         dashboardView = findViewById(R.id.dashboard);
         profile_btn = findViewById(R.id.profil_btn);
@@ -118,9 +121,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
         navigationDrawer();
-
-
         guncelRecycler();
+        lastRecycler();
 
 
         FloatingActionButton callKonfy = findViewById(R.id.konfy_btn);
@@ -248,6 +250,21 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         adapter = new GuncelAdapter(guncelKonfyranslar);
         guncelRecycler.setAdapter(adapter);
+    }
+
+    private void lastRecycler() {
+
+        lastRecycler.setHasFixedSize(true);
+        lastRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        ArrayList<GuncelHelperClass> lastKonfyranslar = new ArrayList<>();
+
+        lastKonfyranslar.add(new GuncelHelperClass(R.drawable.python_dersi, "Python 101", "Python'ın sınırsız evrenine giriş yapacaklar için kaçırılmayacak bir fırsat..."));
+        lastKonfyranslar.add(new GuncelHelperClass(R.drawable.sports_ethics, "Spor Etiği", "Fairplay nedir? Günümüzde gördüğümüz örnekler gelecek için umut verici mi?..."));
+        lastKonfyranslar.add(new GuncelHelperClass(R.drawable.study, "Çalışma Teknikleri", "Stres altında çalışarak başarılı olmak mümkün mü?..."));
+
+        adapter = new LastAdapter(lastKonfyranslar);
+        lastRecycler.setAdapter(adapter);
     }
 
 

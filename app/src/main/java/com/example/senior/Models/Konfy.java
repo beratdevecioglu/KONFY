@@ -1,16 +1,17 @@
 package com.example.senior.Models;
 
 
-public class Konfy {String FDbaslik, FDkategori, FDkonfylink, FDkonfyaciklama;
+public class Konfy {String FDbaslik, FDkategori, FDkonfylink, FDkonfyaciklama, FDkonfyposterlink;
 
     public Konfy() {
     }
 
-    public Konfy(String FDbaslik, String FDkategori, String FDkonfylink, String FDkonfyaciklama) {
+    public Konfy(String FDbaslik, String FDkategori, String FDkonfylink, String FDkonfyaciklama, String FDkonfyposterlink) {
         this.FDbaslik = FDbaslik;
         this.FDkategori = FDkategori;
         this.FDkonfylink = FDkonfylink;
         this.FDkonfyaciklama = FDkonfyaciklama;
+        this.FDkonfyposterlink = FDkonfyposterlink;
     }
 
     public String getFDbaslik() {
@@ -43,5 +44,13 @@ public class Konfy {String FDbaslik, FDkategori, FDkonfylink, FDkonfyaciklama;
 
     public void setFDkonfyaciklama(String FDkonfyaciklama) {
         this.FDkonfyaciklama = FDkonfyaciklama;
+    }
+
+    public String getFDkonfyposterlink() {
+        return FDkonfyposterlink;
+    }
+
+    public void setFDkonfyposterlink(String FDkonfyposterlink) {
+        this.FDkonfyposterlink = FDkonfyposterlink;
     }
 }

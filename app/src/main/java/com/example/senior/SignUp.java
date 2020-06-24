@@ -187,17 +187,6 @@ public class SignUp extends AppCompatActivity {
                 UserHyperClass helperClass = new UserHyperClass(FDfullname, FDusername, FDphonenumber, FDemail, FDpassword);
                 StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
                 ref.putFile(pickedImgUri) ;
-                ref.child("images/"+ UUID.randomUUID().toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        // Got the download URL for 'users/me/profile.png'
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle any errors
-                    }
-                });
 
                 reference.child(FDusername).setValue(helperClass);
                 Intent intent = new Intent(SignUp.this, Dashboard.class);
