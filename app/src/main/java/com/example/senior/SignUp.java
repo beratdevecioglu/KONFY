@@ -259,7 +259,6 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void openGallery() {
-        //TODO: open gallery intent and wait for user to pick an image !
 
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
@@ -273,7 +272,7 @@ public class SignUp extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(SignUp.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
-                Toast.makeText(SignUp.this,"Please accept for required permission",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUp.this,"Galerinize erişebilmemiz için izniniz gerekiyor.",Toast.LENGTH_SHORT).show();
 
             }
 
@@ -296,9 +295,6 @@ public class SignUp extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && requestCode == REQUESCODE && data != null ) {
-
-            // the user has successfully picked an image
-            // we need to save its reference to a Uri variable
             pickedImgUri = data.getData() ;
             ImgUserPhoto.setImageURI(pickedImgUri);
 

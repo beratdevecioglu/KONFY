@@ -59,7 +59,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView.Adapter adapter;
     ImageView menuBtn;
     LinearLayout dashboardView;
-    Button profile_btn;
+    Button profile_btn, konfy_menu_btn, menu_cıkıs;
     private Uri secilenPoster = null;
 
     Button callAnasayfa;
@@ -101,10 +101,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         showAllUserData();
 
-
-
-
-        //
         //Hooks
 
         guncelRecycler = findViewById(R.id.guncel_recycler);
@@ -113,6 +109,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         menuBtn = findViewById(R.id.menu_button);
         dashboardView = findViewById(R.id.dashboard);
         profile_btn = findViewById(R.id.profil_btn);
+        konfy_menu_btn = findViewById(R.id.konfy_menu_btn);
+        menu_cıkıs = findViewById(R.id.menu_cıkıs);
 
         //Menu
 
@@ -183,20 +181,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     private void animateMenuDrawer() {
 
-        //Add any color or remove it to use the default one!
-        //To make it transparent use Color.Transparent in side setScrimColor();
         drawerLayout.setScrimColor(getResources().getColor(R.color.colorFirst));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
 
-                // Scale the View based on current slide offset
                 final float diffScaledOffset = slideOffset * (1 - END_SCALE);
                 final float offsetScale = 1 - diffScaledOffset;
                 dashboardView.setScaleX(offsetScale);
                 dashboardView.setScaleY(offsetScale);
 
-                // Translate the View, accounting for the scaled width
                 final float xOffset = drawerView.getWidth() * slideOffset;
                 final float xOffsetDiff = dashboardView.getWidth() * diffScaledOffset / 2;
                 final float xTranslation = xOffset - xOffsetDiff;
@@ -234,8 +228,32 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 startActivity(intent);
                 break;
         }
+
+        switch (menuItem.getItemId()) {
+            case R.id.konfy_menu_btn:
+
+                Intent intent = new Intent(UserDashboard.this, KonfyOlustur.class);
+
+                startActivity(intent);
+                break;
+
+        }
+
+        switch (menuItem.getItemId()) {
+            case R.id.menu_cıkıs:
+
+                Intent intent = new Intent(UserDashboard.this, Dashboard.class);
+
+                startActivity(intent);
+                break;
+
+        }
+
         return true;
     }
+
+
+
 
     private void guncelRecycler() {
 
